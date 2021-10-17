@@ -27,3 +27,7 @@ nbproject
 .komodotools
 _notes
 dwsync.xml
+
+# Project specific files
+bundled.js
+style.css

@@ -17,7 +17,26 @@ module.exports = {
     rules: [
       {
         test: /\.(s(a|c)ss)$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                plugins: [
+                  [
+                    "autoprefixer",
+                    {
+                      // options
+                    },
+                  ],
+                ],
+              },
+            },
+          },
+          "sass-loader",
+        ],
       },
     ],
   },
