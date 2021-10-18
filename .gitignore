@@ -11,6 +11,7 @@
 *.sass-cache
 node_modules/
 .tmp/
+dist/
 
 # OS or Editor folders
 .DS_Store
@@ -29,5 +30,5 @@ _notes
 dwsync.xml
 
 # Project specific files
-bundled.js
+main.js
 style.css

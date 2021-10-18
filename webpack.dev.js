@@ -10,7 +10,7 @@ module.exports = {
   //devtool: "source-map",
   entry: "./assets/js/App.js",
   output: {
-    filename: "./js/bundled.js",
+    filename: "./js/main.js",
     path: path.resolve(__dirname, "assets"),
   },
   module: {
