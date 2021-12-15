@@ -18,6 +18,12 @@
 
         // Add document title tag to HTML <head>
         add_theme_support( 'title-tag' );
+
+        // Enabling Support for Featured Image
+        add_theme_support( 'post-thumbnails' );
+
+        //add_image_size( $name:string, $width:integer, $height:integer, $crop:boolean|array ); //Register a new image size
+        //set_post_thumbnail_size( $width:integer, $height:integer, $crop:boolean|array ); //Registers an image size for the post thumbnail
     }
 
     function theme_widgets_init() {
