@@ -20,5 +20,22 @@
         add_theme_support( 'title-tag' );
     }
 
-    add_action( 'after_setup_theme', 'theme_features');
+    function theme_widgets_init() {
+        /* Register the 'primary' sidebar. */
+        register_sidebar(
+            array(
+                'id'            => 'primary',
+                'name'          => 'Fő Oldalsáv',
+                'description'   => 'Fő oldalsáv leírása',
+                'before_widget' => '<div>',
+                'after_widget'  => '</div>',
+                'before_title'  => '<h3>',
+                'after_title'   => '</h3>',
+            )
+        );
+        /* Repeat register_sidebar() code for additional sidebars. */
+    }
+
+    add_action('after_setup_theme', 'theme_features');
+    add_action('widgets_init', 'theme_widgets_init');
 ?>
