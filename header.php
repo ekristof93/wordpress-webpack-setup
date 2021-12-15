@@ -9,5 +9,10 @@
 </head>
 <body <?php body_class(  ); ?>>
     <header>
-        
+        <nav>
+            <?php wp_nav_menu(array(
+                'theme_location' => 'headerMenuLocation',
+                'fallback_cb' => false
+            )); ?>
+        </nav>
     </header>

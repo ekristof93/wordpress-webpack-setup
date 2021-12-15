@@ -9,6 +9,14 @@
 
     function theme_features()
     {
+        // Menu registrations
+        register_nav_menus( array(
+            'headerMenuLocation' => 'Fejléc Menü',
+            'footerMenuLocationOne' => 'Lábléc Menü 1',
+            'footerMenuLocationTwo' => 'Lábléc Menü 2'
+        ) );
+
+        // Add document title tag to HTML <head>
         add_theme_support( 'title-tag' );
     }
 
