@@ -7,23 +7,14 @@
 
     add_action('wp_enqueue_scripts', 'theme_resources');
 
-    function theme_features()
-    {
-        add_theme_support(
-			'post-formats',
-			array(
-				'link',
-				'aside',
-				'gallery',
-				'image',
-				'quote',
-				'status',
-				'video',
-				'audio',
-				'chat',
-			)
-		);
+    function theme_features() {
+        // Add document title tag to HTML <head>
+        add_theme_support( 'title-tag' );
 
+        // Enabling Support for Featured Image
+        add_theme_support( 'post-thumbnails' );
+        //add_image_size( $name:string, $width:integer, $height:integer, $crop:boolean|array ); //Register a new image size
+        //set_post_thumbnail_size( $width:integer, $height:integer, $crop:boolean|array ); //Registers an image size for the post thumbnail
 
         // Menu registrations
         register_nav_menus( array(
@@ -32,15 +23,6 @@
             'footerMenuLocationTwo' => 'Lábléc Menü 2'
         ) );
 
-        // Add document title tag to HTML <head>
-        add_theme_support( 'title-tag' );
-
-        // Enabling Support for Featured Image
-        add_theme_support( 'post-thumbnails' );
-
-        //add_image_size( $name:string, $width:integer, $height:integer, $crop:boolean|array ); //Register a new image size
-        //set_post_thumbnail_size( $width:integer, $height:integer, $crop:boolean|array ); //Registers an image size for the post thumbnail
-    
         // Custom logo support
         add_theme_support('custom-logo', array(
 				'height'               => 300,
@@ -50,38 +32,13 @@
 				'unlink-homepage-logo' => true,
 			)
 		);
+
+		// Add theme support for selective refresh for widgets.
+		add_theme_support( 'customize-selective-refresh-widgets' );
+    
     }
     
     add_action('after_setup_theme', 'theme_features');
-
-    // Add Custom Header Support
-    function themename_custom_header_setup() {
-        add_theme_support( 'custom-header', array(
-            'default-image'      => get_template_directory_uri() . '/assets/img/default-image.jpg',
-            'width'              => 1000,
-            'height'             => 250,
-        ) );
-
-        register_default_headers( array(
-            'wheel' => array(
-                'url'           => get_template_directory_uri() . '/assets/img/wheel.jpg',
-                'thumbnail_url' => get_template_directory_uri() . '/assets/img/wheel-thumbnail.jpg',
-                'description'   => 'Wheel',
-            ),
-            'shore' => array(
-                'url'           => get_template_directory_uri() . '/assets/img/shore.jpg',
-                'thumbnail_url' => get_template_directory_uri() . '/assets/img/shore-thumbnail.jpg',
-                'description'   => 'Shore',
-            ),
-            'trolley' => array(
-                'url'           => get_template_directory_uri() . '/assets/img/trolley.jpg',
-                'thumbnail_url' => get_template_directory_uri() . '/assets/img/trolley-thumbnail.jpg',
-                'description'   => 'Trolley',
-            )
-        ) );
-    }
-    
-    add_action( 'after_setup_theme', 'themename_custom_header_setup' );
 
     function theme_widgets_init() {
         // Register the 'primary' sidebar.
@@ -99,4 +56,8 @@
     }
 
     add_action('widgets_init', 'theme_widgets_init');
+
+    // Add Custom Header Support
+    require get_parent_theme_file_path( '/inc/custom-header.php' );
+
 ?>
