@@ -18,9 +18,9 @@
 
         // Menu registrations
         register_nav_menus( array(
-            'headerMenuLocation' => 'Fejléc Menü',
-            'footerMenuLocationOne' => 'Lábléc Menü 1',
-            'footerMenuLocationTwo' => 'Lábléc Menü 2'
+            'headerMenuLocation' => 'Header Menu',
+            'footerMenuLocationOne' => 'Footer Menu 1',
+            'footerMenuLocationTwo' => 'Footer Menu 2'
         ) );
 
         // Custom logo support
